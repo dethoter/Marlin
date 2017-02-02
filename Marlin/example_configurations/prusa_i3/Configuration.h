@@ -803,10 +803,10 @@
   #define ABL_GRID_MAX_POINTS_Y ABL_GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define LEFT_PROBE_BED_POSITION 45
-  #define RIGHT_PROBE_BED_POSITION 170
-  #define FRONT_PROBE_BED_POSITION 60
-  #define BACK_PROBE_BED_POSITION 170
+  #define LEFT_PROBE_BED_POSITION 25
+  #define RIGHT_PROBE_BED_POSITION 160
+  #define FRONT_PROBE_BED_POSITION 20
+  #define BACK_PROBE_BED_POSITION 160
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 10
@@ -1149,7 +1149,7 @@
 //
 //  Set this option if CLOCKWISE causes values to DECREASE
 //
-//#define REVERSE_ENCODER_DIRECTION
+#define REVERSE_ENCODER_DIRECTION
 
 //
 // This option reverses the encoder direction for navigating LCD menus.
