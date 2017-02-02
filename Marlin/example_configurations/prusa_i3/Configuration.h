@@ -315,10 +315,9 @@
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
   #define K1 0.95 //smoothing factor within the PID
 
-  // Hephestos i3
-  #define  DEFAULT_Kp 23.05
-  #define  DEFAULT_Ki 2.00
-  #define  DEFAULT_Kd 66.47
+  #define  DEFAULT_Kp 26.67
+  #define  DEFAULT_Ki 2.86
+  #define  DEFAULT_Kd 62.26
 
 #endif // PIDTEMP
 
@@ -334,9 +333,9 @@
 // If your configuration is significantly different than this and you don't understand the issues involved, you probably
 // shouldn't use bed PID until someone else verifies your hardware works.
 // If this is enabled, find your own PID constants below.
-#define PIDTEMPBED
+//#define PIDTEMPBED
 
-//#define BED_LIMIT_SWITCHING
+// #define BED_LIMIT_SWITCHING
 
 // This sets the max power delivered to the bed, and replaces the HEATER_BED_DUTY_CYCLE_DIVIDER option.
 // all forms of bed control obey this (PID, bang-bang, bang-bang with hysteresis)
@@ -349,16 +348,10 @@
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-  //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define  DEFAULT_bedKp 10.00
-  #define  DEFAULT_bedKi .023
-  #define  DEFAULT_bedKd 305.4
-
-  //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
-  //#define  DEFAULT_bedKp 97.1
-  //#define  DEFAULT_bedKi 1.41
-  //#define  DEFAULT_bedKd 1675.16
+  #define  DEFAULT_bedKp 97.1
+  #define  DEFAULT_bedKi 1.41
+  #define  DEFAULT_bedKd 1675.16
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -478,7 +471,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 266.666666667, 100.47095761381482 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 79.4, 79.719, 398.75, 100.47095761381482 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -571,9 +564,9 @@
 //    |           |
 //    O-- FRONT --+
 //  (0,0)
-#define X_PROBE_OFFSET_FROM_EXTRUDER 25     // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -40     // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER 0.8  // Z offset: -below +above  [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER 50     // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -5     // Y offset: -front +behind [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER 0.4  // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -799,14 +792,14 @@
 #if ENABLED(AUTO_BED_LEVELING_LINEAR) || ENABLED(AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define ABL_GRID_MAX_POINTS_X 3
+  #define ABL_GRID_MAX_POINTS_X 4
   #define ABL_GRID_MAX_POINTS_Y ABL_GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define LEFT_PROBE_BED_POSITION 40
+  #define LEFT_PROBE_BED_POSITION 60
   #define RIGHT_PROBE_BED_POSITION 190
-  #define FRONT_PROBE_BED_POSITION 40
-  #define BACK_PROBE_BED_POSITION 150
+  #define FRONT_PROBE_BED_POSITION 20
+  #define BACK_PROBE_BED_POSITION 180
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 10
@@ -897,7 +890,7 @@
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //define this to enable EEPROM support
-#define EEPROM_SETTINGS
+// #define EEPROM_SETTINGS
 
 #if ENABLED(EEPROM_SETTINGS)
   // To disable EEPROM Serial responses and decrease program space by ~1700 byte: comment this out:
